@@ -47,7 +47,7 @@ void solveProblems(AcequiaManager& manager)
 */
 
 
-// Helper function to find canals by source and destination regions
+// Helper function to find canals by source and destination regions: George
 std::vector<Canal*> findCanalsByRoute(const std::vector<Canal*>& canals, 
                                        const std::string& sourceName, 
                                        const std::string& destName) {
@@ -61,7 +61,7 @@ std::vector<Canal*> findCanalsByRoute(const std::vector<Canal*>& canals,
     return matchingCanals;
 }
 
-// Helper function to find all canals from a source region
+// Helper function to find all canals from a source region: George
 std::vector<Canal*> findCanalsFromSource(const std::vector<Canal*>& canals, 
                                           const std::string& sourceName) {
     std::vector<Canal*> matchingCanals;
@@ -73,7 +73,7 @@ std::vector<Canal*> findCanalsFromSource(const std::vector<Canal*>& canals,
     return matchingCanals;
 }
 
-// Helper function to find all canals to a destination region
+// Helper function to find all canals to a destination region: George
 std::vector<Canal*> findCanalsToDestination(const std::vector<Canal*>& canals, 
                                               const std::string& destName) {
     std::vector<Canal*> matchingCanals;
@@ -85,7 +85,7 @@ std::vector<Canal*> findCanalsToDestination(const std::vector<Canal*>& canals,
     return matchingCanals;
 }
 
-// Helper function to calculate optimal flow rate based on deficit/surplus
+// Helper function to calculate optimal flow rate based on deficit/surplus: George
 double calculateFlowRate(double deficit, double surplus, double maxFlow = 1.0) {
     // Use the smaller of deficit or surplus to avoid over-transfer
     double targetAmount = (deficit < surplus) ? deficit : surplus;
@@ -111,7 +111,7 @@ double calculateFlowRate(double deficit, double surplus, double maxFlow = 1.0) {
     return flowRate;
 }
 
-// Main adaptive water management solution - balanced and deterministic
+// Main adaptive water management solution - balanced and deterministic: George
 void solveProblems(AcequiaManager& manager)
 {
     auto canals = manager.getCanals();
@@ -175,7 +175,7 @@ void solveProblems(AcequiaManager& manager)
 
     while(!manager.isSolved && manager.hour != manager.SimulationMax)
     {
-        // Reset all canals each hour to avoid stale settings
+        // Reset all canals each hour to avoid stale settings: Jacob
         for(auto canal : canals){
             canal->toggleOpen(false);
             canal->setFlowRate(0.0);
